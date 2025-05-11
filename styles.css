@@ -1,0 +1,253 @@
+.emojiman-head {
+    position: relative;
+    width: 140px;
+    height: 140px;
+    background-color: #FFD700;
+    border-radius: 50%;
+    margin: 0 auto;
+    overflow: visible;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.emojiman-eye {
+    position: absolute;
+    width: 35px;
+    height: 35px;
+    background-color: white;
+    border-radius: 50%;
+    border: 3px solid black;
+    transition: all 0.3s ease;
+}
+
+.emojiman-eye-left {
+    top: 32px;
+    left: 28px;
+}
+
+.emojiman-eye-right {
+    top: 32px;
+    right: 28px;
+}
+
+.emojiman-pupil {
+    position: absolute;
+    width: 14px;
+    height: 14px;
+    background-color: black;
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.emojiman-eyebrow {
+    position: absolute;
+    width: 28px;
+    height: 6px;
+    background-color: black;
+    border-radius: 4px;
+    top: 28px;
+    transition: all 0.3s ease;
+}
+
+.emojiman-eyebrow-left {
+    left: 32px;
+}
+
+.emojiman-eyebrow-right {
+    right: 32px;
+}
+
+.emojiman-mouth {
+    position: absolute;
+    width: 40px;
+    height: 16px;
+    border-radius: 0 0 56px 56px;
+    background-color: #FF6B6B;
+    top: 92px;
+    bottom: auto;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 3px solid black;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.emojiman-tongue {
+    position: absolute;
+    width: 35px;
+    height: 16px;
+    background-color: #FF9999;
+    border-radius: 16px 16px 0 0;
+    bottom: -6px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.emojiman-body {
+    position: relative;
+    width: 154px;
+    height: 98px;
+    background-color: #FF6B6B;
+    margin: 0 auto 7px;
+    border-radius: 35px;
+    border: 3px solid black;
+}
+
+.emojiman-arm {
+    position: absolute;
+    width: 18px;
+    height: 63px;
+    background-color: #FF6B6B;
+    border: 3px solid black;
+    border-radius: 9px;
+}
+
+.emojiman-arm-left {
+    transform: rotate(15deg);
+    top: 14px;
+    left: -7px;
+}
+
+.emojiman-arm-right {
+    transform: rotate(-15deg);
+    top: 14px;
+    right: -7px;
+}
+
+.emojiman-leg {
+    position: absolute;
+    width: 21px;
+    height: 35px;
+    background-color: #FF6B6B;
+    border: 3px solid black;
+    border-radius: 10px;
+    bottom: -32px;
+}
+
+.emojiman-leg-left {
+    left: 42px;
+}
+
+.emojiman-leg-right {
+    right: 42px;
+}
+
+.expression-happy .emojiman-mouth {
+    border-radius: 0 0 56px 56px;
+    top: 92px;
+    bottom: auto;
+}
+
+.expression-sad .emojiman-eyebrow {
+    transform: rotate(15deg);
+}
+
+.expression-sad .emojiman-mouth {
+    border-radius: 56px 56px 0 0;
+    top: 94px;
+    bottom: auto;
+}
+
+.expression-surprised .emojiman-eye {
+    height: 42px;
+}
+
+.expression-surprised .emojiman-mouth {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    top: 96px;
+    bottom: auto;
+}
+
+.expression-angry .emojiman-eyebrow {
+    transform: rotate(-15deg);
+}
+
+.expression-angry .emojiman-eye {
+    transform: rotate(-15deg);
+}
+
+.expression-angry .emojiman-mouth {
+    height: 10px;
+    border-radius: 0;
+    top: 98px;
+    bottom: auto;
+}
+
+.expression-wink .emojiman-eye-right {
+    height: 3px;
+    border-radius: 3px;
+    top: 63px;
+}
+
+.expression-cool .emojiman-eye {
+    transform: rotate(-15deg);
+}
+
+.expression-sleepy .emojiman-eye {
+    height: 3px;
+    border-radius: 3px;
+    top: 63px;
+}
+
+.expression-laugh .emojiman-mouth {
+    height: 18px;
+    border-radius: 0 0 28px 28px;
+    top: 90px;
+    bottom: auto;
+}
+
+.dark .emojiman-head {
+    background-color: #FFC107;
+}
+
+.dark .emojiman-body,
+.dark .emojiman-arm,
+.dark .emojiman-leg {
+    background-color: #E65C5C;
+}
+
+.dark .emojiman-mouth {
+    background-color: #E65C5C;
+}
+
+.dark .emojiman-tongue {
+    background-color: #E67F7F;
+}
+
+#emojimanContainer,
+#gallery .emojimanContainer {
+    overflow: visible;
+    position: relative;
+    height: 350px;
+    margin-top: 30px;
+}
+
+#emojimanContainer,
+#gallery .emojimanContainer {
+    margin-top: 30px;
+}
+
+/* 갤러리 아이템 크기 축소 */
+#gallery .p-4 {
+    padding: 0.5rem !important;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    row-gap: 0.5rem;
+}
+
+#gallery .p-4 button {
+    margin-top: 0.5rem !important;
+}
+
+#gallery .p-2 > * {
+    margin-top: 0.25rem !important;
+    margin-bottom: 0.25rem !important;
+}
+#gallery .p-2 button {
+    margin-top: 0.25rem !important;
+}

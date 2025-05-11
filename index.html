@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>이모지맨 생성기</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#FF6B6B',
+                    }
+                }
+            }
+        }
+        
+        // Dark mode detection
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            document.documentElement.classList.add('dark');
+        }
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
+            if (event.matches) {
+                document.documentElement.classList.add('dark');
+            } else {
+                document.documentElement.classList.remove('dark');
+            }
+        });
+    </script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-white dark:bg-gray-900 text-gray-900 dark:text-white min-h-screen flex flex-col">
+    <main class="container mx-auto px-4 py-8 flex-grow flex flex-col">
+        <h1 class="text-3xl font-bold text-center mb-8">이모지맨 생성기</h1>
+        
+        <div class="flex flex-col md:flex-row gap-8 mb-8">
+            <div class="w-full md:w-1/2 p-4 border rounded-lg dark:border-gray-700 bg-gray-50 dark:bg-gray-800">
+                <h2 class="text-xl font-semibold text-center mb-4">커스터마이징</h2>
+                
+                <div class="space-y-4">
+                    <div>
+                        <label for="bodyColor" class="block mb-2">몸 색상</label>
+                        <input type="color" id="bodyColor" value="#FF6B6B" class="w-full h-10 rounded">
+                    </div>
+                    
+                    <div>
+                        <label for="headColor" class="block mb-2">얼굴 색상</label>
+                        <input type="color" id="headColor" value="#FFD700" class="w-full h-10 rounded">
+                    </div>
+                    
+                    <div>
+                        <label for="expression" class="block mb-2">표정</label>
+                        <select id="expression" class="w-full p-2 text-base border rounded dark:bg-gray-700 dark:border-gray-600">
+                            <option value="happy">행복</option>
+                            <option value="sad">슬픔</option>
+                            <option value="surprised">놀람</option>
+                            <option value="angry">화남</option>
+                            <option value="wink">윙크</option>
+                            <option value="cool">쿨</option>
+                            <option value="sleepy">졸림</option>
+                            <option value="laugh">웃음</option>
+                            <option value="excited">신남</option>
+                            <option value="celebrate">축하</option>
+                            <option value="resentful">분노</option>
+                            <option value="thinking">삐짐</option>
+                        </select>
+                    </div>
+                    
+                    <div>
+                        <label for="accessory" class="block mb-2">액세서리</label>
+                        <select id="accessory" class="w-full p-2 text-base border rounded dark:bg-gray-700 dark:border-gray-600">
+                            <option value="none">없음</option>
+                            <option value="headphones">헤드폰</option>
+                            <option value="star">별</option>
+                            <option value="heart">하트</option>
+                        </select>
+                    </div>
+                    
+                    <button id="generateBtn" class="w-full py-3 bg-primary hover:bg-opacity-90 text-white font-semibold rounded transition">
+                        이모지맨 생성하기
+                    </button>
+                </div>
+            </div>
+            
+            <div class="w-full md:w-1/2 p-4 border rounded-lg dark:border-gray-700 bg-gray-50 dark:bg-gray-800 flex flex-col items-center justify-center min-h-[500px]">
+                <div id="emojimanContainer" class="relative w-full max-w-xs mx-auto">
+                    <div class="emojiman-head">
+                        <div class="emojiman-eyebrow emojiman-eyebrow-left"></div>
+                        <div class="emojiman-eyebrow emojiman-eyebrow-right"></div>
+                        <div class="emojiman-eye emojiman-eye-left">
+                            <div class="emojiman-pupil"></div>
+                        </div>
+                        <div class="emojiman-eye emojiman-eye-right">
+                            <div class="emojiman-pupil"></div>
+                        </div>
+                        <div class="emojiman-mouth">
+                            <div class="emojiman-tongue"></div>
+                        </div>
+                        <div id="accessoryContainer"></div>
+                    </div>
+                    <div class="emojiman-body">
+                        <div class="emojiman-arm emojiman-arm-left"></div>
+                        <div class="emojiman-arm emojiman-arm-right"></div>
+                        <div class="emojiman-leg emojiman-leg-left"></div>
+                        <div class="emojiman-leg emojiman-leg-right"></div>
+                    </div>
+                </div>
+                
+                <button id="downloadBtn" class="mt-6 py-2 px-4 bg-green-600 hover:bg-green-700 text-white font-semibold rounded transition hidden">
+                    이미지로 저장하기
+                </button>
+            </div>
+        </div>
+        
+        <div id="gallery" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+            <!-- Generated Emojimen will appear here -->
+        </div>
+    </main>
+    
+    <footer class="py-4 text-center text-gray-600 dark:text-gray-400 bg-gray-100 dark:bg-gray-800">
+        <p>이모지맨 생성기 © 2025</p>
+    </footer>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="utils.js"></script>
+    <script src="colorHandler.js"></script>
+    <script src="expressionHandler.js"></script>
+    <script src="accessoryHandler.js"></script>
+    <script src="galleryHandler.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>
